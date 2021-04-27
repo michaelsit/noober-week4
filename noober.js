@@ -39,7 +39,7 @@ window.addEventListener('DOMContentLoaded', async function() {
 
 
 
-  // }
+  }
 
 
   // sample data string from json
