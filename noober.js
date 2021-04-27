@@ -15,15 +15,16 @@ window.addEventListener('DOMContentLoaded', async function() {
     let rideType
     // Create ride type conditional based on # of passengers, purple, ect. and store it in memory
       if (purpleReq == true) {
-        rideType = `Noober Purple` 
+        rideType = `Purple` 
       } else if (numberOfPass > 3) {
-        rideType = `Noober XL`
+        rideType = `XL`
       } else {
-        rideType = `Noober X`
+        rideType = `X`
       }
     // passenger detail objects (First, Last, Phone #)
     let pass = json[i].passengerDetails
       let passName = `${pass.first} ${pass.last}`
+      let passNumber = `${pass.phoneNumber}`
     // define pickup & dropoff objects (Address, City, State Zip)
     let pickup = json[i].pickupLocation
       let pickupAdd = `${pickup.address}`
@@ -41,30 +42,30 @@ window.addEventListener('DOMContentLoaded', async function() {
   rides.insertAdjacentHTML(`beforeend`,`
   <h1 class="inline-block mt-8 px-4 py-2 rounded-xl text-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
     <i class="fas fa-car-side"></i>
-    <span>Noober ${rideStatus}</span>
+    <span>Noober ${rideType}</span>
   </h1>
   <div class="border-4 border-gray-900 p-4 my-4 text-left">
     <div class="flex">
       <div class="w-1/2">
-        <h2 class="text-2xl py-1">${name}</h2>
-        <p class="font-bold text-gray-600">${details.phoneNumber}</p>
+        <h2 class="text-2xl py-1">${passName}</h2>
+        <p class="font-bold text-gray-600">${passNumber}</p>
       </div>
       <div class="w-1/2 text-right">
         <span class="rounded-xl bg-gray-600 text-white p-2">
-          ${numOfPass} passengers
+          ${numberOfPass} passengers
         </span>
       </div>
     </div>
     <div class="mt-4 flex">
       <div class="w-1/2">
         <div class="text-sm font-bold text-gray-600">PICKUP</div>
-        <p>${pickupAdd1}</p>
-        <p>${pickupAdd2}</p>
+        <p>${pickupAdd}</p>
+        <p>${pickupCity}</p>
       </div>
       <div class="w-1/2">
         <div class="text-sm font-bold text-gray-600">DROPOFF</div>
-        <p>${dropoffAdd1}</p>
-        <p>${dropoffAdd2}</p>
+        <p>${dropoffAdd}</p>
+        <p>${dropoffCity}</p>
       </div>
     </div>
   </div>
